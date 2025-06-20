@@ -1,23 +1,29 @@
 package tracker.model;
 
 public class Transaction {
-    private int id;
-    private String description;
-    private double amount;
-    private String category;
-    private String datetime;
+    private final int id;
+    private final String type;
+    private final String description;
+    private final double amount;
+    private final String category;
+    private final String date;
 
-    public Transaction(int id, String description, double amount, String category, String datetime) {
+    public Transaction(int id, String type, String description, double amount, String category, String date) {
         this.id = id;
+        this.type = type;
         this.description = description;
         this.amount = amount;
         this.category = category;
-        this.datetime = datetime;
+        this.date = date;
     }
 
     // Getters
     public int getId() {
         return id;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public String getDescription() {
@@ -32,9 +38,12 @@ public class Transaction {
         return category;
     }
 
-    public String getDatetime() {
-        return datetime;
+    public String getDate() {
+        return date;
     }
 
-    // Setters?, toString of Transaction?
+    @Override
+    public String toString() {
+        return String.format("Transaction ID #%d\nType: %s\nDescription: %s\nAmount: £%.2f\nCategory: %s\nDate: %s", id, type, description, amount, category, date);
+    }
 }
