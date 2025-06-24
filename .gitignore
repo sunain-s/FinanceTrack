@@ -1,0 +1,15 @@
+# Ignore all IntelliJ project files
+.idea/
+*.iml
+
+# Build output
+out/
+target/
+bin/
+*.class
+
+# Logs
+*.log
+
+# macOS
+.DS_Store

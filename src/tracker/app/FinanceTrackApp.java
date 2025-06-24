@@ -26,7 +26,7 @@ public class FinanceTrackApp {
             scanner.nextLine();
             switch (select) {
                 case 1:
-                    // manager.addTransaction();
+                    manager.addTransaction();
                     break;
                 case 2:
                     System.out.println(manager.getTransactions());
