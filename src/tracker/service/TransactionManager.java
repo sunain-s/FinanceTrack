@@ -44,8 +44,16 @@ public class TransactionManager {
         }
     }
 
-    public void deleteTransaction(Transaction t) {
-        transactions.remove(t);
+    public void deleteTransaction(int id) {
+        Iterator<Transaction> iterator = transactions.iterator();
+        while (iterator.hasNext()) {
+            if (iterator.next().getId() == id) {
+                iterator.remove();
+                System.out.println("Transaction deleted.");
+                return;
+            }
+        }
+        System.out.println("Transaction ID not found.");
     }
 
     private int generateNextId() {

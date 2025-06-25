@@ -1,15 +1,15 @@
 [ {
   "id" : 1,
   "type" : "income",
-  "amount" : 100.0,
-  "description" : "lemonade stand",
-  "category" : "Business",
-  "date" : "2025-06-25"
+  "amount" : 11.0,
+  "description" : "stocks",
+  "category" : "Investment",
+  "date" : "2025-11-30"
 }, {
   "id" : 2,
   "type" : "expense",
-  "amount" : 120.9999,
-  "description" : "cool headphones",
-  "category" : "Tech",
+  "amount" : 4.0,
+  "description" : "mug",
+  "category" : "Pleasure",
   "date" : "2025-06-25"
 } ]

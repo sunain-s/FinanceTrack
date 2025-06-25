@@ -1,6 +1,7 @@
 package tracker.app;
 
 import java.util.Scanner;
+import java.io.File;
 import tracker.service.*;
 
 public class FinanceTrackApp {
@@ -32,13 +33,16 @@ public class FinanceTrackApp {
                     System.out.println(manager.getTransactions());
                     break;
                 case 3:
-                    // manager.deleteTransaction();
+                    System.out.print("Enter transaction ID to delete: ");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+                    manager.deleteTransaction(id);
                     break;
                 case 4:
                     manager.saveTransactions("src/data/transactions.json");
                     break;
                 case 5:
-                    // load from file
+                    manager.loadTransactions("src/data/transactions.json");
                     break;
                 case 0:
                     flag = false;

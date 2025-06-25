@@ -23,7 +23,7 @@ public class FileHandler {
     public static List<Transaction> readFromFile(String path) {
         try {
             return mapper.readValue(new File(path), new TypeReference<List<Transaction>>() {});
-        } catch  (IOException e) {
+        } catch (IOException e) {
             System.out.println("Error reading transactions from: " + path);
             return null;
         }
