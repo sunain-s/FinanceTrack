@@ -1,0 +1,15 @@
+[ {
+  "id" : 1,
+  "type" : "income",
+  "amount" : 100.0,
+  "description" : "lemonade stand",
+  "category" : "Business",
+  "date" : "2025-06-25"
+}, {
+  "id" : 2,
+  "type" : "expense",
+  "amount" : 120.9999,
+  "description" : "cool headphones",
+  "category" : "Tech",
+  "date" : "2025-06-25"
+} ]

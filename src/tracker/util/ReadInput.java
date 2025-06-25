@@ -8,16 +8,17 @@ import java.time.format.DateTimeParseException;
 public class ReadInput {
     private final Scanner scanner = new Scanner(System.in);
 
-//    public int readInt(String prompt) {
-//        while (true) {
-//            System.out.print(prompt);
-//            try {
-//                return Integer.parseInt(scanner.nextLine());
-//            } catch (NumberFormatException e) {
-//                System.out.println("Invalid input. Please enter an integer");
-//            }
-//        }
-//    }
+    public String readTransactionType(String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String input = scanner.nextLine().toLowerCase();
+            if (input.equals("income") || input.equals("expense")) {
+                return input;
+            } else {
+                System.out.println("Invalid input. Please enter 'income' or 'expense'");
+            }
+        }
+    }
 
     public double readDouble(String prompt) {
         while (true) {
@@ -49,18 +50,6 @@ public class ReadInput {
                 return input;
             } catch (DateTimeParseException e) {
                 System.out.println("Invalid input. Please use yyyy-MM-dd");
-            }
-        }
-    }
-
-    public String readTransactionType(String prompt) {
-        while (true) {
-            System.out.print(prompt);
-            String input = scanner.nextLine().toLowerCase();
-            if (input.equals("income") || input.equals("expense")) {
-                return input;
-            } else {
-                System.out.println("Invalid input. Please enter 'income' or 'expense'");
             }
         }
     }

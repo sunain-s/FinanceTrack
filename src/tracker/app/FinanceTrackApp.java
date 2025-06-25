@@ -35,7 +35,7 @@ public class FinanceTrackApp {
                     // manager.deleteTransaction();
                     break;
                 case 4:
-                    // save updates
+                    manager.saveTransactions("src/data/transactions.json");
                     break;
                 case 5:
                     // load from file
