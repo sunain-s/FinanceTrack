@@ -2,19 +2,21 @@ package tracker.model;
 
 public class Transaction {
     private int id;
-    private final String type;
-    private final double amount;
-    private final String description;
-    private final String category;
-    private final String date;
+    private String type;
+    private double amount;
+    private String description;
+    private Category category;
+    private String date;
 
-    public Transaction(String type, double amount, String description, String category, String date) {
+    public Transaction(String type, double amount, String description, Category category , String date) {
         this.type = type;
         this.amount = amount;
         this.description = description;
         this.category = category;
         this.date = date;
     }
+
+    public Transaction() {} // apparently needed for deserialisation with Jackson
 
     // Getters
     public int getId() {
@@ -33,7 +35,7 @@ public class Transaction {
         return amount;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 

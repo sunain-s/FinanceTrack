@@ -1,7 +1,9 @@
 package tracker.app;
 
 import java.util.Scanner;
-import java.io.File;
+import java.util.List;
+
+import tracker.model.Transaction;
 import tracker.service.*;
 
 public class FinanceTrackApp {
@@ -30,7 +32,10 @@ public class FinanceTrackApp {
                     manager.addTransaction();
                     break;
                 case 2:
-                    System.out.println(manager.getTransactions());
+                    List<Transaction> transactions = manager.getTransactions();
+                    for (Transaction t : transactions) {
+                        System.out.println(t + "\n");
+                    }
                     break;
                 case 3:
                     System.out.print("Enter transaction ID to delete: ");

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Iterator;
 
+import tracker.model.Category;
 import tracker.model.Transaction;
 import tracker.util.ReadInput;
 import tracker.util.FileHandler;
@@ -16,7 +17,7 @@ public class TransactionManager {
         String type = readInput.readTransactionType("Enter transaction type (income/expense): ");
         double amount = readInput.readDouble("Enter amount (£): ");
         String description = readInput.readString("Enter description: ");
-        String category = readInput.readString("Enter category: ");
+        Category category = readInput.readCategory("Enter category: ");
         String date = readInput.readDate("Enter date (yyyy-MM-dd): ");
 
         Transaction t = new Transaction(type, amount, description, category, date);
@@ -39,7 +40,9 @@ public class TransactionManager {
 
     public void loadTransactions(String path) {
         List<Transaction> loadedTransactions = FileHandler.readFromFile(path);
+        System.out.println("Transactions loaded from: " + path);
         if (loadedTransactions != null) {
+            transactions.clear();
             transactions.addAll(loadedTransactions);
         }
     }
@@ -49,7 +52,7 @@ public class TransactionManager {
         while (iterator.hasNext()) {
             if (iterator.next().getId() == id) {
                 iterator.remove();
-                System.out.println("Transaction deleted.");
+                System.out.printf("Transaction #%d deleted.%n", id);
                 return;
             }
         }

@@ -5,14 +5,16 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+import tracker.model.Category;
+
 public class ReadInput {
     private final Scanner scanner = new Scanner(System.in);
 
     public String readTransactionType(String prompt) {
         while (true) {
             System.out.print(prompt);
-            String input = scanner.nextLine().toLowerCase();
-            if (input.equals("income") || input.equals("expense")) {
+            String input = scanner.nextLine().toUpperCase();
+            if (input.equals("INCOME") || input.equals("EXPENSE")) {
                 return input;
             } else {
                 System.out.println("Invalid input. Please enter 'income' or 'expense'");
@@ -38,6 +40,23 @@ public class ReadInput {
             if (!input.isEmpty()) {return input;}
             System.out.println("Please enter a string");
         }
+    }
+
+    public Category readCategory(String prompt) {
+        System.out.println(prompt);
+        for (Category c : Category.values()) {
+            System.out.println(" > " + c.getCategoryName());
+        }
+
+        while (true) {
+            String input = scanner.nextLine().trim().toUpperCase();
+            try {
+                return Category.valueOf(input);
+            } catch (IllegalArgumentException e) {
+                System.out.println("Invalid input. Please enter a valid category");
+            }
+        }
+
     }
 
     public String readDate(String prompt) {

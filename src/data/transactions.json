@@ -1,15 +1,22 @@
 [ {
   "id" : 1,
-  "type" : "income",
+  "type" : "INCOME",
   "amount" : 11.0,
   "description" : "stocks",
-  "category" : "Investment",
+  "category" : "INVESTMENT",
   "date" : "2025-11-30"
 }, {
   "id" : 2,
-  "type" : "expense",
+  "type" : "EXPENSE",
   "amount" : 4.0,
   "description" : "mug",
-  "category" : "Pleasure",
+  "category" : "PLEASURE",
   "date" : "2025-06-25"
+}, {
+  "id" : 3,
+  "type" : "INCOME",
+  "amount" : 120.9,
+  "description" : "this weeks work",
+  "category" : "SALARY",
+  "date" : "2025-06-26"
 } ]
