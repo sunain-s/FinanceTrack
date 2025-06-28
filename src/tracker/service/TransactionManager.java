@@ -1,8 +1,10 @@
 package tracker.service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Iterator;
+import java.util.stream.Collectors;
 
 import tracker.model.Category;
 import tracker.model.Transaction;
@@ -68,4 +70,28 @@ public class TransactionManager {
         }
         return maxId + 1;
     }
+
+    // Filtering
+    public List<Transaction> filterByType(String type) {
+        return transactions.stream().filter(t -> t.getType().equals(type)).collect(Collectors.toList());
+    }
+
+    public List<Transaction> filterByCategory(Category category) {
+        return transactions.stream().filter(t -> t.getCategory().equals(category)).collect(Collectors.toList());
+    }
+
+    public List<Transaction> filterByDate(String start, String end) {
+        LocalDate startDate = LocalDate.parse(start);
+        LocalDate endDate = LocalDate.parse(end);
+
+        return transactions.stream().filter(t -> {
+            LocalDate tDate = LocalDate.parse(t.getDate());
+            return (tDate.isEqual(startDate) || tDate.isAfter(startDate)) && (tDate.isEqual(endDate) || tDate.isBefore(endDate));
+        }).toList();
+    }
+
+    public List<Transaction> filterByTypeAndDate(String type, String start, String end) {
+        return filterByDate(start, end).stream().filter(t -> t.getType().equals(type)).collect(Collectors.toList());
+    }
+
 }
