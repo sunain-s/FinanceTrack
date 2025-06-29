@@ -25,6 +25,7 @@ public class FinanceTrackApp {
             System.out.println("3. Delete Transaction");
             System.out.println("4. Save To File");
             System.out.println("5. Load File");
+            System.out.println("6. Generate Summary");
             System.out.println("0. Exit");
 
             int select = scanner.nextInt();
@@ -47,6 +48,9 @@ public class FinanceTrackApp {
                     break;
                 case 5:
                     manager.loadTransactions("src/data/transactions.json");
+                    break;
+                case 6:
+                    makeReport(manager);
                     break;
                 case 0:
                     flag = false;
@@ -111,6 +115,22 @@ public class FinanceTrackApp {
             for (Transaction t : transactions) {
                 System.out.println(t + "\n");
             }
+        } else {
+            System.out.println("No transactions found");
+        }
+    }
+
+    private static void makeReport(TransactionManager manager) {
+        ReadInput readInput = new ReadInput();
+        ReportGenerator reportGenerator = new ReportGenerator();
+
+        String start = readInput.readDate("Enter start date (yyyy-MM-dd): ");
+        String end = readInput.readDate("Enter end date (yyyy-MM-dd): ");
+        List<Transaction> transactions = manager.filterByDate(start, end);
+
+        if (!transactions.isEmpty()) {
+            reportGenerator.generateSummary(transactions);
+            reportGenerator.generateSummaryByCategory(transactions);
         } else {
             System.out.println("No transactions found");
         }

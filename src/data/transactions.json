@@ -19,4 +19,11 @@
   "description" : "this weeks work",
   "category" : "SALARY",
   "date" : "2025-06-26"
+}, {
+  "id" : 4,
+  "type" : "EXPENSE",
+  "amount" : 15.99,
+  "description" : "burger",
+  "category" : "FOOD",
+  "date" : "2025-05-12"
 } ]
